@@ -1,0 +1,29 @@
+6
+
+Cross and Autocoorelation 
+
+import numpy as np
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5]
+y=[2,4,6,8,10]
+
+cross_corr=np.correlate(x,y,mode='full')
+print('cross correlation',cross_corr)
+
+auto_corr=np.correlate(x,x,mode='full')
+print('autocorrelation',auto_corr)
+
+lags= np.arrange(-len(x)+1, len(x))
+plt.stem(lags,cross_corr)
+plt.xlabel('Lag')
+plt.ylabel('Cross Correlation')
+plt.title('Cross Correlation of x and y')
+plt.grid(True)
+plt.show()
+
+plt.stem(lags,auto_corr)
+plt.xlabel('Lag')
+plt.ylabel('AutoCorrelation')
+plt.title('AutoCorrelation of x and y')
+plt.grid(True)
+plt.show()

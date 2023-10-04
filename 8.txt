@@ -1,0 +1,33 @@
+8
+
+Reading Audiofile 
+
+import scipy.io.eavfile as wavfile 
+import scipy 
+import scipy.fftpack as fftpk 
+import numpy as np 
+from matplotlib import pyplot as plt
+s_rate, signal= wavfile.read('filepath')
+FFT= abs(fftpk.fftfreq(len(FFT),(1.0/s_rate))
+plt.plot(freqs[range(len(FFT)//2)], FFT[range(len(FFT)//2)])
+plt.xlabel('Frequency')
+plt.ylabel('Amplitude')
+plt.show()
+
+Measure of Dispersion, Varience, Second moment 
+
+std=np.std(freqs)
+maxv= np.amax(freqs)
+minv= np.amin(freqs)
+median= np.median(freqs)
+
+skew= scipy.stats.skew(freqs)
+kurt= scipy.stats.kurtosis(freq)
+q1= np.quantile(freqs, 0.25)
+q3= np.quantile(freqs, 0.75)
+mode= scipy.stats.mode(freqs)[0][0]
+iqr= scipy.stats.iqr(freqs)
+print('std as:',mean)
+print('skew as:',skew)
+print('kurt as:',kurt)
+print('q1 as:',q1)

@@ -1,0 +1,57 @@
+7
+
+Reading Audio file 
+
+import librosa
+import librosa.display
+import IPython.display as ipd
+import matplot.pyplot as plt
+ipd.Audio('audio filepath')
+audio_path=('audio filepath')
+x,sr= librosa.load(audio_path)
+
+Measuring Duration Of Audio Signal 
+
+ipd.Audio('audio filepath')
+y=len(x)
+print(y)
+y1=sr
+print(y1)
+duration_of_sound=y/y1
+print(duration_of_sound,"second")
+
+Amplitude Variation of signal 
+
+plt.figure(figsize(14,5))
+plt.grid(True)
+librosa.display.waveshow(x)
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+plt.title("Time domain analysis of audio file")
+
+Spectrogram Representation of Audio Signal 
+
+X=librosa.stft(x)
+Xdb=lbrosa.amplitude_to_db(abs(X))
+plt.figure(figsize=(20,5))
+librosa.display.specshow(Xdb,sr=sr,x_axis='time',y_axis='hz')
+plt.colorbar()
+
+MFCC
+
+librosa.load('audio filepath')
+mfccs= librosa.featue.mfcc(y=y,sr=sr,n_mfcc=40)
+plt.figure(figsize(10,4))
+librosa.display.specshow(mfccs,x_axis="time")
+plt.colorbar()
+plt.tight_layout()
+plt.show()
+
+Chroma 
+
+x,sr= librosa.load('audio filepath')
+hop_length= 512
+S= np.abs(librosa.stft(y))
+chroma= librosa.feature.chroma_stft(S=S,sr=sr)
+plt.figure(figsize=(15,5))
+librosa.display.specshow(chroma, x_axis='time', y_axis='chroma', hop_length=hop_length, cmap='coolwarm')

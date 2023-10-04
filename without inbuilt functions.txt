@@ -1,0 +1,71 @@
+#Linear Convolution without inbuilt function
+
+x = [1, 2, 1, 2, 1]
+h = [1, 2, 3, 4, 5]
+
+M = len(x)
+N = len(h)
+
+y = [0] * (M + N - 1)
+
+for n in range(M + N - 1):
+  for k in range(N):
+    if((n - k >= 0) and (n - k < M)):
+      y[n] = y[n] + (x[n - k] * h[k])
+
+print("Linear Convolution:")
+print(y)
+
+
+#Circular convolution without inbuilt function
+
+x = [1, 2, 3, 4, 5]
+h = [2, 4, 6, 8, 10]
+
+N = len(x)
+y = [0] * N
+
+for n in range(N):
+  for k in range(N):
+    y[n] = y[n] + x[(n - k) % N] * h[k]
+
+print("Circular convolution:")
+print(y)
+
+
+#Auto Correlation without inbuilt function
+
+x = [1, 2, 3, 4, 5]
+y = []
+
+N = len(x)
+
+for k in range(N):
+  corr_sum = 0
+  for n in range(N):
+    if((n - k) >= 0 and (n - k) < N):
+      corr_sum = corr_sum + x[n - k] * x[n]
+
+  y.append(corr_sum)
+
+print("Auto correlation:")
+print(y)
+
+
+#Cross correlation without inbuilt function
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+N = len(x)
+
+for k in range(N):
+  corr_sum = 0
+  for n in range(N):
+    if((n - k) >= 0 and (n - k) < N):
+      corr_sum = corr_sum + (x[n - k] * y[n])
+
+  y.append(corr_sum)
+
+print("Cross correlation:")
+print(y)

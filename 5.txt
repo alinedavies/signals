@@ -1,0 +1,22 @@
+5
+
+Linear Convoltion 
+
+import numpy as np
+h=[1,2,3,3,2,1];
+x=[1,2,3,4,5];
+y=np.convolve(x,h,mode+'full')
+print('Linear Convolution y=\n',y)
+
+Circular Convolution 
+
+import numpy as np
+h=[1,2,3,4,5];
+x=[1,2,1];
+N=max(len(x),len(h))
+x_padded=np.pad(x,(0,N-len(x),mode='constant')
+h_padded=np.pad(h,(0,N-len(h),mode='constant')
+X=np.fft.fft(x_padded)
+H=np.fft.fft(h_padded)
+Y=np.fft.ifft(X*H)
+print("Circular Convolution Result",np.real(Y))

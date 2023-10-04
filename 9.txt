@@ -1,0 +1,49 @@
+9
+
+Input Parameters 
+
+Sine wave 
+Amplitude= 1v
+Frequency= 4Hz
+Phase Offset= 0 radians 
+Sample Mode= Discrete
+Output complexity= Real 
+Coputation methood= Trignometric fen
+Sample time= 1/500
+Samples per frame= 1 
+
+Sine Wave1
+Amplitude= 1v
+Frequency= 50Hz
+Phase Offset= 0 radians 
+Sample Mode= Discrete
+Output complexity= Real 
+Coputation methood= Trignometric fen
+Sample time= 1/5000
+Samples per frame= 1 
+
+Analog Filter Design 
+Design Methood= Butterworth 
+Filter Type= Lowpass 
+Filter Order= 20
+Passband edge frequency (rad/sec)= 2*3.142*8
+
+Analog Filter Design1 
+Design Methood= Butterworth 
+Filter Type= Bandpass 
+Filter Order= 20
+Lower Passband edge frequency (rad/sec)= 2*3.142*8
+Upper Passband edge frequency (rad/sec)= 2*3.142*8
+
+Constant
+Constant Value = 1
+
+Add
+List of signs= ++
+
+Product and product1 
+Number of Inputs= 2
+
+Scope 
+Go to settings, History, Uncheck the limit data points to last 
+Run time= 4s

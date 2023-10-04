@@ -1,0 +1,81 @@
+10
+
+Reading Audio File 
+
+import librosa
+import librosa.display
+import IPython.display as ipd
+import matplot.pyplot as plt
+ipd.Audio('audio filepath')
+audio_path=('audio filepath')
+x,sr= librosa.load(audio_path)
+
+Length of Audio File 
+
+ipd.Audio('audio filepath')
+y=len(x)
+print(y)
+y1=sr
+print(y1)
+duration_of_sound=y/y1
+print(duration_of_sound,"second")
+
+Time Domain Analysis of Audio Signal
+
+plt.figure(figsize(14,5))
+plt.grid(True)
+librosa.display.waveshow(x)
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+plt.title("Time domain analysis of audio file")
+
+Reading Audiofile 
+
+import scipy.io.eavfile as wavfile 
+import scipy 
+import scipy.fftpack as fftpk 
+import numpy as np 
+from matplotlib import pyplot as plt
+s_rate, signal= wavfile.read('filepath')
+FFT= abs(fftpk.fftfreq(len(FFT),(1.0/s_rate))
+plt.plot(freqs[range(len(FFT)//2)], FFT[range(len(FFT)//2)])
+plt.xlabel('Frequency')
+plt.ylabel('Amplitude')
+plt.show()
+
+Measure of Dispersion, Varience, Second moment 
+
+std=np.std(freqs)
+maxv= np.amax(freqs)
+minv= np.amin(freqs)
+median= np.median(freqs)
+
+skew= scipy.stats.skew(freqs)
+kurt= scipy.stats.kurtosis(freq)
+q1= np.quantile(freqs, 0.25)
+q3= np.quantile(freqs, 0.75)
+mode= scipy.stats.mode(freqs)[0][0]
+iqr= scipy.stats.iqr(freqs)
+print('std as:',mean)
+print('skew as:',skew)
+print('kurt as:',kurt)
+print('q1 as:',q1)
+
+MFCC
+
+librosa.load('audio filepath')
+mfccs= librosa.featue.mfcc(y=y,sr=sr,n_mfcc=40)
+plt.figure(figsize(10,4))
+librosa.display.specshow(mfccs,x_axis="time")
+plt.colorbar()
+plt.tight_layout()
+plt.show()
+
+Chroma 
+
+x,sr= librosa.load('audio filepath')
+hop_length= 512
+S= np.abs(librosa.stft(y))
+chroma= librosa.feature.chroma_stft(S=S,sr=sr)
+plt.figure(figsize=(15,5))
+librosa.display.specshow(chroma, x_axis='time', y_axis='chroma', hop_length=hop_length, cmap='coolwarm')
