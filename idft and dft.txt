@@ -1,0 +1,38 @@
+% Input sequence
+x = [1, 2, 3, 4];
+N = length(x);  % Length of the sequence
+
+% DFT Calculation
+X = zeros(1, N);  % DFT result
+for k = 0:N-1
+    X(k+1) = sum(x .* exp(-1i * 2 * pi * k * (0:N-1) / N));
+end
+
+% IDFT Calculation
+x_reconstructed = zeros(1, N);  % Reconstructed sequence
+for n = 0:N-1
+    x_reconstructed(n+1) = (1/N) * sum(X .* exp(1i * 2 * pi * (0:N-1) * n / N));
+end
+
+% Plotting
+figure;
+
+% Magnitude plot
+subplot(2, 1, 1);
+stem(0:N-1, abs(X));
+xlabel('k');
+ylabel('|X(k)|');
+title('Magnitude Plot');
+
+% Phase plot
+subplot(2, 1, 2);
+stem(0:N-1, angle(X));
+xlabel('k');
+ylabel('Phase (rad)');
+title('Phase Plot');
+
+% Display the original and reconstructed sequences
+disp('Original Sequence: ');
+disp(x);
+disp('Reconstructed Sequence: ');
+disp(x_reconstructed);
